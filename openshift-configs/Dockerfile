@@ -1,4 +1,9 @@
 FROM ruby:2.6.5
+
+RUN addgroup --system <group>
+RUN adduser --system <user> --ingroup <group>
+USER <user>:<group>
+
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs
 RUN mkdir /myapp
 WORKDIR /myapp
